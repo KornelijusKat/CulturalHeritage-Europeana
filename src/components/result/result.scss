@@ -1,0 +1,12 @@
+.heritages{ 
+    .row {
+        width:80%;
+        .card{
+            background-color: #e0e0e0;
+            overflow: hidden;
+            .img-fluid{
+                object-fit: contain;
+            }
+        }
+    }
+}

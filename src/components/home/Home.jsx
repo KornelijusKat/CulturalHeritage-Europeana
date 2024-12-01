@@ -5,7 +5,7 @@ const Home = () => {
     return(
         <main>
             <Instruction></Instruction>
-            <Link to='/Search'>Search</Link>
+            <Link className="link" to='/Search'>Search</Link>
         </main>
     )
 }

@@ -5,10 +5,11 @@ import getArt from "./services/getArt";
 
 const AppContext = React.createContext();
 const AppProvicer = ({children}) =>{
-    const [query, setQuery] = useState('Zweihander');
+    const [query, setQuery] = useState('');
+    //galvojau pasidaryti ir records, detalesniai paieskai, bet ten tik daugiau linku i kitas medziagas
     const [endpoint, setEndpoint] = useState('search.json');
     const [data, setData] = useState([]);
-    const {isLoading, error, data: heritages} = getArt(endpoint,`&query=${query}`)
+    const {isLoading, error, data: heritages} = getArt(endpoint,`&query=${query}`, query)
     return (
         <AppContext.Provider value={{isLoading, error, heritages, query, setQuery}}>
             {children}

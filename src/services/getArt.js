@@ -4,7 +4,7 @@ const constructEndPoint = (endpoint, urlParams)=>{
     const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
     return `${Base_URL}${endpoint}?wskey=${apiKey}${urlParams}`
 }
-const getArt = (endpoint, urlParams) =>{
+const getArt = (endpoint, urlParams, query) =>{
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState({show:false, msg: ''});
     const [data, setData] = useState(null);
@@ -28,9 +28,11 @@ const getArt = (endpoint, urlParams) =>{
         }
     }
     useEffect(()=>{
+        if(query.trim()!== ''){
         const url = constructEndPoint(endpoint, urlParams)
         fetchArt(url)
-    }, [endpoint, urlParams])
+        }
+    }, [endpoint, query])
     return{
         isLoading, error, data
     }
