@@ -6,6 +6,10 @@ const Result = () =>{
     if(isLoading){
         return <div className="Loading"></div>
     }
+    console.log(heritages)
+    if(heritages){
+
+    }
     return(
         <section className="heritages">
             <div className="row mx-auto gap-2">
@@ -14,14 +18,16 @@ const Result = () =>{
                     country: location, 
                     dcTitleLangAware: { en: [name] = ['English title not available'] } = {},  
                     edmPreview: [img] = [url],                    
-                    dcDescriptionLangAware: { en: [description] = ["No Description available"] } = {}  
+                    dcDescriptionLangAware: { en: [description] = ["No Description available"] } = {},
+                    id: itemId,
+                    link: furtherLink  
                 } = heritage || {};
                 return(
-                    <div className="card col-sm-12 col-md-3 col-lg-3 mt-2 mx-auto" key={heritage.id || name}>
+                    <div className="card col-sm-12 col-md-3 col-lg-3 mt-2 mx-auto" key={heritage.id || itemId}>
                         <article className="py-2 mx-auto">
                             <img className="img-fluid" src={img} alt={name} />
                             <h2>{name}</h2>
-                            <p>{description}</p>                      
+                            <p>{description}</p>            
                         </article>
                     </div>
                 )
