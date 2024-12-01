@@ -13,9 +13,10 @@ const getArt = (endpoint, urlParams) =>{
         try{
             const response = await fetch(url);
             const data = await response.json();
+            console.log(data);
             console.log(data.items);
-            if(data.response === 'True'){
-                setData(data.items);
+            if(data.success === true){
+                setData(data.items || data);
                 setError({show:false, msg:''})
             }else{
                 setError({show:true, msg:data.message})
