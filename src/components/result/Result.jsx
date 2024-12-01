@@ -4,11 +4,17 @@ const Result = () =>{
     const url = 'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png';
     const {heritages, isLoading,error} = useGlobalContext();
     if(isLoading){
-        return <div className="Loading"></div>
+        return <div className="loading">
+            <h2>Loading</h2>
+            </div>
     }
     console.log(heritages)
-    if(heritages){
-
+    if(heritages.length === 0){
+        return (
+            <div className="container">
+                <h2>No results found</h2>
+            </div>
+        )
     }
     return(
         <section className="heritages">
